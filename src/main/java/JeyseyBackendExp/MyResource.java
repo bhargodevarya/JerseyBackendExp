@@ -1,5 +1,6 @@
 package JeyseyBackendExp;
 
+import JeyseyBackendExp.model.User;
 import io.reactivex.Single;
 
 import javax.ws.rs.GET;
@@ -27,9 +28,11 @@ public class MyResource {
     }
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("rx")
-    public Single<String> rxSetup() {
-        return Single.just("rx setup done");
+    public Single<User> rxSetup() {
+        User user = new User();
+        user.setAge(7);
+        return Single.just(user);
     }
 }
